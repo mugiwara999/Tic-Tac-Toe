@@ -37,10 +37,8 @@ let gameControl = function() {
       temp.splice(index, 1);
 
       if ((value1 === gameBoard[i][temp[0]]) && (value1 === gameBoard[i][1])) {
-        console.log("hi")
         return true
       }
-        console.log("hji")
       return false
 
     }
@@ -51,16 +49,14 @@ let gameControl = function() {
       temp.splice(index, 1)
 
       if ((value1 === gameBoard[temp[0]][j]) && (value1 === gameBoard[temp[1]][j])) {
-        console.log("hjli")
         return true
       }
-        console.log("hjfi")
       return false
     }
 
   }
 
-  return { gameBoard, checkForWin, checkInDirection }
+  return { gameBoard, checkForWin  }
 
 }
 
