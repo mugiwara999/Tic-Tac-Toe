@@ -1,9 +1,8 @@
 // game
 
-let gameControl = function() {
+const gameControl = function() {
 
-  // gameBoard = [[2, 3, 3], [3, 4, 4], [4, 5, 5]]
-  gameBoard = [[2, 1, 2], [2, 9, 5], [2, 5, 2]]
+  gameBoard = [[3, 3, 4], [3, 4, 4], [4, 5, 5]]
 
   let value1;
   let value2;
@@ -11,6 +10,7 @@ let gameControl = function() {
 
   function checkForWin() {
 
+    //check for diagonal
     value1 = gameBoard[0][2]
     value2 = gameBoard[1][1]
     value3 = gameBoard[2][0]
@@ -19,6 +19,7 @@ let gameControl = function() {
       return true
     }
 
+    //check for diagonal
     value1 = gameBoard[0][0]
     value2 = gameBoard[1][1]
     value3 = gameBoard[2][2]
@@ -38,34 +39,23 @@ let gameControl = function() {
 
     coordinates = [0, 1, 2]
     if (motion == "side") {
-      temp = coordinates.slice(); // Make a copy of coordinates array
-      index = temp.indexOf(j);
-      temp.splice(index, 1);
+      temp = coordinates;
+      temp.slice(i, 1);
 
-      if ((value === gameBoard[i][temp[0]]) && (value === gameBoard[i][temp[1]])) {
-        console.log(i + "side");
+      if ((value == gameBoard[i][temp[0]]) && (value == gameBoard[i][temp[1]])) {
         return true;
       }
-      console.log(i + "side");
-      console.log(2);
-      return false;
+      return false
+
     }
 
     if (motion == "vertical") {
-      temp = coordinates
-      index = temp.indexOf(j);
-      temp.splice(index, 1)
+      temp = coordinates;
+      temp.slice(i, 1);
 
-      console.log(gameBoard[j][temp[0]])
-      console.log(value === gameBoard[j][temp[0]])
-      console.log(gameBoard[j][temp[1]])
-      console.log(value === gameBoard[j][temp[1]])
       if ((value === gameBoard[temp[0]][j]) && (value === gameBoard[temp[1]][j])) {
-        console.log(j + "vertical");
         return true;
       }
-      console.log(j + "vertical")
-      console.log(4)
       return false
     }
 
@@ -74,6 +64,11 @@ let gameControl = function() {
   return { gameBoard, checkForWin }
 
 }
+
+
+
+let players = {}
+
 
 
 
